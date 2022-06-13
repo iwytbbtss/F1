@@ -79,7 +79,7 @@ export default {
   transition: all .4s ease-in;
 }
 .slide-enter, .slide-leave-to {
-  left: -22%;
+  left: -300px;
 }
 .slide-enter-to, .slide-leave {
   left: 0%;

@@ -2,18 +2,15 @@
   <div id="app">
     <GPBar/>
     <MainHeader/>
-    <ContentBox/>
-    <ChartBox/>
-    <RecommandVideo/>
+    <MainContent />
   </div>
 </template>
 
 <script>
 import MainHeader from './components/MainHeader.vue'
 import GPBar from './components/GPbar.vue'
-import ContentBox from './components/ContentBox.vue'
-import ChartBox from './components/ChartBox.vue'
-import RecommandVideo from './components/RecommandVideo.vue'
+import MainContent from './views/MainContent.vue'
+
 //fontawesome
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons'
@@ -27,12 +24,8 @@ library.add(faChevronRight, faChevronLeft)
 export default {
   name: 'App',
   components: {
-    MainHeader,GPBar,ContentBox,ChartBox,RecommandVideo
+    MainHeader,GPBar,MainView
   },
-  created() {
-    this.$store.dispatch('getCSDriversAPI');
-    this.$store.dispatch('getCSConstructorsAPI')
-  }
 }
 </script>
 

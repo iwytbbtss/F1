@@ -1,6 +1,6 @@
 <template>
   <div id="title">
-    <h1 @click="log">ㅂ</h1>
+    <h1>ㅂ</h1>
     <ul class="util_menu">
       <li v-for="(link, i) in outlinks" :key="i">
         <a :href="link.url" target="blank">
@@ -21,11 +21,6 @@ export default {
       {url: "https://instagram.com/f1/", img: require("../assets/icon/insta.png"), ex: "공식인스타그램"}]
     }
   },
-  methods: {
-    log() {
-      console.log(this.$store.getters.getCSDrivers)
-    }
-  }
 }
 </script>
 

@@ -1,13 +1,12 @@
 <template>
   <swiper class="swiper" :options="swiperOption">
-    <swiper-slide v-for="(driver, i) in drivers" :key="i">
+    <swiper-slide v-for="(driver, i) in this.$store.getters.getCSDrivers" :key="i">
       <div>
-        <!-- <img :src="driver.driver.image" :alt="driver.dirver.name">
+        <img :src="driver.driver.image" :alt="driver.driver.name">
         <h3>{{ driver.driver.name }}</h3>
         <p>{{ driver.driver.number }}</p>
         <p>{{ driver.team.name }}</p>
-        <p>point : {{ driver.points }}</p> -->
-        {{ driver.driver.name }}
+        <p>point : {{ driver.points }}</p>
       </div>
     </swiper-slide>
     <div class="swiper-button-prev" slot="button-prev"></div>
@@ -24,7 +23,6 @@ export default {
   components: {swiper, swiperSlide},
   data: function() {
     return {
-      drivers: this.$store.state.CSDrivers,
       index: 0,
       swiperOption: {
         slidesPerView: 1,

@@ -1,5 +1,5 @@
 <template>
-  <chart-component :list="constructors">
+  <chart-component :list="this.$store.getters.getCSConstructors">
     <template #header>
       <th>팀네임</th><th>포인트</th>
     </template>
@@ -19,10 +19,5 @@ export default {
   components: {
     ChartComponent
   },
-  data: function() {
-    return {
-      constructors: this.$store.getters.getCSConstructors
-    }
-  }
 }
 </script>

@@ -1,5 +1,5 @@
 <template>
-  <chart-component :list="drivers">
+  <chart-component :list="this.$store.getters.getCSDrivers">
     <template #header>
       <th>이름</th><th>소속팀</th><th>포인트</th>
     </template>
@@ -19,10 +19,5 @@ export default {
   components: {
     ChartComponent
   },
-  data: function() {
-    return {
-      drivers: this.$store.getters.getCSDrivers
-    }
-  }
 }
 </script>
