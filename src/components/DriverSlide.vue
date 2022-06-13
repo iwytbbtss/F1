@@ -2,11 +2,12 @@
   <swiper class="swiper" :options="swiperOption">
     <swiper-slide v-for="(driver, i) in drivers" :key="i">
       <div>
-        <img :src="require(`@/assets/driverimg/${driver.picture}`)" :alt="driver.name">
-        <h3>{{ driver.name }}</h3>
-        <p>{{ driver.number }}</p>
-        <p>{{ driver.team }}</p>
-        <p>point : {{ driver.point }}</p>
+        <!-- <img :src="driver.driver.image" :alt="driver.dirver.name">
+        <h3>{{ driver.driver.name }}</h3>
+        <p>{{ driver.driver.number }}</p>
+        <p>{{ driver.team.name }}</p>
+        <p>point : {{ driver.points }}</p> -->
+        {{ driver.driver.name }}
       </div>
     </swiper-slide>
     <div class="swiper-button-prev" slot="button-prev"></div>
@@ -15,7 +16,6 @@
 </template>
 
 <script>
-import data from '../data.json'
 import {swiper, swiperSlide} from 'vue-awesome-swiper'
 import 'swiper/css/swiper.css'
 
@@ -24,7 +24,7 @@ export default {
   components: {swiper, swiperSlide},
   data: function() {
     return {
-      drivers: data.drivers.sort(function(a, b) {return b.point-a.point}),
+      drivers: this.$store.state.CSDrivers,
       index: 0,
       swiperOption: {
         slidesPerView: 1,
@@ -36,7 +36,7 @@ export default {
         }
       }
     }
-  }
+  },
 }
 </script>
 

@@ -1,6 +1,6 @@
 <template>
   <div id="title">
-    <h1>ㅂ</h1>
+    <h1 @click="log">ㅂ</h1>
     <ul class="util_menu">
       <li v-for="(link, i) in outlinks" :key="i">
         <a :href="link.url" target="blank">
@@ -19,6 +19,11 @@ export default {
       outlinks: [{url: "https://www.youtube.com/c/F1", img: require("../assets/icon/youtube.png"), ex: "공식유튜브"},
       {url: "https://dcinside.com/board/formula1", img: require("../assets/icon/community.png"), ex: "한국커뮤니티"},
       {url: "https://instagram.com/f1/", img: require("../assets/icon/insta.png"), ex: "공식인스타그램"}]
+    }
+  },
+  methods: {
+    log() {
+      console.log(this.$store.getters.getCSDrivers)
     }
   }
 }

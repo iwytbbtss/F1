@@ -2,8 +2,8 @@
     <div id="chart">
         <span @click="isDriver=true">드라이버 챔피언쉽</span>
         <span @click="isDriver=false">컨스트럭터 챔피언쉽</span>
-        <ChartDriver v-if="isDriver"/>
-        <ChartConstructor v-else/>
+        <ChartDriver v-show="isDriver" />
+        <ChartConstructor v-show="!isDriver" />
     </div>
 </template>
 

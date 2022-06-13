@@ -16,8 +16,7 @@ import ChartBox from './components/ChartBox.vue'
 import RecommandVideo from './components/RecommandVideo.vue'
 //fontawesome
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faChevronLeft } from '@fortawesome/free-solid-svg-icons'
-import { faChevronRight } from '@fortawesome/free-solid-svg-icons'
+import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons'
 
 library.add(faChevronRight, faChevronLeft)
 
@@ -29,6 +28,10 @@ export default {
   name: 'App',
   components: {
     MainHeader,GPBar,ContentBox,ChartBox,RecommandVideo
+  },
+  created() {
+    this.$store.dispatch('getCSDriversAPI');
+    this.$store.dispatch('getCSConstructorsAPI')
   }
 }
 </script>
