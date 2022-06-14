@@ -4,8 +4,8 @@
             <option v-for="year in years" :key="year" :value="year">{{ year }}</option>
         </select>
         <button>검색</button>
-        <ChartDriver :selected="driverList" />
-        <ChartConstructor :selected="constructorList" />
+        <ChartDriver :selected="$store.getters.getCSDrivers" />
+        <ChartConstructor :selected="$store.getters.getCSConstructors" />
     </div>
 </template>
 
@@ -22,8 +22,6 @@ export default {
         return {
             selectedYear: this.$store.getters.getCurrentSeason,
             years: [],
-            driverList: this.$store.getters.getCSDrivers,
-            constructorList: this.$store.getters.getCSConstructors
         }
     },
     created() {
@@ -38,8 +36,8 @@ export default {
                 this.constructorList=this.$store.getters.getCSConstructors;
             }
             else {
-                this.$store.dispatch('getSSDriversAPI', this.selectedYear).then(() => {this.driverList=this.getSSDrivers});
-                this.$store.dispatch('getSSConstructorsAPI', this.selectedYear).then(() => {this.constructorList=this.getSSConstructors});
+                this.$store.dispatch('getSSDriversAPI', this.selectedYear);
+                this.$store.dispatch('getSSConstructorsAPI', this.selectedYear);
             }
         }
     }

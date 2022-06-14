@@ -24,7 +24,7 @@ library.add(faChevronRight, faChevronLeft)
 export default {
   name: 'App',
   components: {
-    MainHeader,GPBar,MainView
+    MainHeader,GPBar,MainContent
   },
 }
 </script>

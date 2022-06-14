@@ -1,6 +1,6 @@
 <template>
   <div id="title">
-    <h1>ㅂ</h1>
+    <img src="../assets/F1-logo (1).png" alt="ㅂ">
     <ul class="util_menu">
       <li v-for="(link, i) in outlinks" :key="i">
         <a :href="link.url" target="blank">
