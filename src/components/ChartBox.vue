@@ -1,9 +1,11 @@
 <template>
     <div id="chart">
-        <span @click="isDriver=true">드라이버 챔피언쉽</span>
-        <span @click="isDriver=false">컨스트럭터 챔피언쉽</span>
-        <ChartDriver v-show="isDriver" />
-        <ChartConstructor v-show="!isDriver" />
+        <select v-model="selectedYear">
+            <option v-for="year in years" :key="year" :value="year">{{ year }}</option>
+        </select>
+        <button>검색</button>
+        <ChartDriver :selected="driverList" />
+        <ChartConstructor :selected="constructorList" />
     </div>
 </template>
 
@@ -18,22 +20,32 @@ export default {
     },
     data: function() {
         return {
-            isDriver: true
+            selectedYear: this.$store.getters.getCurrentSeason,
+            years: [],
+            driverList: this.$store.getters.getCSDrivers,
+            constructorList: this.$store.getters.getCSConstructors
+        }
+    },
+    created() {
+        for(let i=this.$store.getters.getCurrentSeason; i>=2011; i--) {
+            this.years.push(i);
+        }
+    },
+    methods: {
+        commitYear() {
+            if(this.selectedYear==this.$store.getters.getCurrentSeason) {
+                this.driverList=this.$store.getters.getCSDrivers;
+                this.constructorList=this.$store.getters.getCSConstructors;
+            }
+            else {
+                this.$store.dispatch('getSSDriversAPI', this.selectedYear).then(() => {this.driverList=this.getSSDrivers});
+                this.$store.dispatch('getSSConstructorsAPI', this.selectedYear).then(() => {this.constructorList=this.getSSConstructors});
+            }
         }
     }
 }
 </script>
 
 <style scoped>
-#chart {
-    margin: 50px 200px;
-}
 
-span {
-    float: left;
-    background-color: beige;
-    border-radius: 20px 20px 0 0;
-    padding: 8px;
-    font-size: 14px;
-}
 </style>

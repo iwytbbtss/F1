@@ -11,7 +11,10 @@ export default new Vuex.Store({
     state: {
         CSDrivers: [],
         CSConstructors: [],
-        recommandVideos: data.videos
+        SSDrivers: [],
+        SSConstructors: [],
+        recommandVideos: data.videos,
+        currentSeason: '2022'
     },
     getters: {
         getCSDrivers(state) {
@@ -20,8 +23,17 @@ export default new Vuex.Store({
         getCSConstructors(state) {
             return state.CSConstructors
         },
+        getSSDrivers(state) {
+            return state.SSDrivers
+        },
+        getSSConstructors(state) {
+            return state.SSConstructors
+        },
         getRecVideos(state) {
             return state.recommandVideos
+        },
+        getCurrentSeason(state) {
+            return state.currentSeason
         }
     },
     mutations: {
@@ -29,8 +41,14 @@ export default new Vuex.Store({
             state.CSDrivers = payload;
         },
         setCSConstructors(state, payload) {
-            state.CSConstructors = payload
-        }
+            state.CSConstructors = payload;
+        },
+        setSSDrivers(state, payload) {
+            state.SSDrivers = payload;
+        },
+        setSSConstructors(state, payload) {
+            state.SSConstructors = payload;
+        },
     },
     actions: {
         getCSDriversAPI({ commit }) {
@@ -60,6 +78,34 @@ export default new Vuex.Store({
             axios.request(option)
                 .then((res) => { commit('setCSConstructors', res.data.response); })
                 .catch((err) => { console.error(err) });
-        }
+        },
+        getSSDriversAPI({ commit }, payload) {
+            const option={
+                method: 'GET',
+                url: 'https://api-formula-1.p.rapidapi.com/rankings/drivers',
+                params: {season: payload},
+                headers: {
+                    'X-RapidAPI-Key': 'eefb5dd36cmsh999b017f81b07dfp16ea22jsnc076742f1c8a',
+                    'X-RapidAPI-Host': 'api-formula-1.p.rapidapi.com'
+                }
+            }
+            axios.request(option)
+                .then((res) => { commit('setSSDrivers', res.data.response); })
+                .catch((err) => { console.error(err) });
+        },
+        getSSConstructorsAPI({ commit }, payload) {
+            const option={
+                method: 'GET',
+                url: 'https://api-formula-1.p.rapidapi.com/rankings/teams',
+                params: {season: payload},
+                headers: {
+                    'X-RapidAPI-Key': 'eefb5dd36cmsh999b017f81b07dfp16ea22jsnc076742f1c8a',
+                    'X-RapidAPI-Host': 'api-formula-1.p.rapidapi.com'
+                }
+            }
+            axios.request(option)
+                .then((res) => { commit('setSSConstructors', res.data.response); })
+                .catch((err) => { console.error(err) });
+        },
     }
 })

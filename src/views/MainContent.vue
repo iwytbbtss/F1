@@ -1,9 +1,9 @@
 <template>
-    <div>
-        <ContentBox/>
+    <div class="container">
+        <ContentBox />
         <DriverSlide />
-        <ChartBox/>
-        <RecommandVideo/>
+        <ChartBox />
+        <RecommandVideo />
     </div>
 </template>
 
@@ -23,3 +23,18 @@ export default {
     }
 }
 </script>
+
+<style scoped>
+.container {
+    width: 75vw;
+    height: auto;
+    margin: auto;
+    margin-top: 30px;
+}
+
+@media screen and (max-width: 768px) {
+    .container {
+        width: 95vw;
+    }
+}
+</style>

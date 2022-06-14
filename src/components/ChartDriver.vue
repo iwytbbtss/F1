@@ -1,5 +1,5 @@
 <template>
-  <chart-component :list="this.$store.getters.getCSDrivers">
+  <chart-component :list="selected">
     <template #header>
       <th>이름</th><th>소속팀</th><th>포인트</th>
     </template>
@@ -19,5 +19,8 @@ export default {
   components: {
     ChartComponent
   },
+  props: {
+    selected: Array
+  }
 }
 </script>
