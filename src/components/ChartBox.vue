@@ -4,8 +4,8 @@
             <option v-for="year in years" :key="year" :value="year">{{ year }}</option>
         </select>
         <button>검색</button>
-        <ChartDriver :selected="$store.getters.getCSDrivers" />
-        <ChartConstructor :selected="$store.getters.getCSConstructors" />
+        <ChartDriver :selected="$store.getters.getSSDrivers[selectedYear]" />
+        <ChartConstructor :selected="$store.getters.getCSConstructors[selectedYear]" />
     </div>
 </template>
 
