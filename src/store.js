@@ -11,7 +11,7 @@ export default new Vuex.Store({
     state: {
         CSDrivers: [],
         CSConstructors: [],
-        SSDrivers: [],
+        SSDrivers: {},
         SSConstructors: [],
         recommandVideos: data.videos,
         currentSeason: '2022'
@@ -44,10 +44,10 @@ export default new Vuex.Store({
             state.CSConstructors = payload;
         },
         setSSDrivers(state, payload) {
-            state.SSDrivers = payload;
+            state.SSDrivers[payload.year] = payload.data;
         },
         setSSConstructors(state, payload) {
-            state.SSConstructors = payload;
+            state.SSConstructors[payload.year] = payload.data;
         },
     },
     actions: {
@@ -62,7 +62,10 @@ export default new Vuex.Store({
                 }
             }
             axios.request(option)
-                .then((res) => { commit('setCSDrivers', res.data.response); })
+                .then((res) => {
+                    commit('setCSDrivers', res.data.response);
+                    commit('setSSDrivers', { year: '2022', data: res.data.response });
+                })
                 .catch((err) => { console.error(err) });
         },
         getCSConstructorsAPI({ commit }) {
@@ -76,7 +79,10 @@ export default new Vuex.Store({
                 }
             }
             axios.request(option)
-                .then((res) => { commit('setCSConstructors', res.data.response); })
+                .then((res) => {
+                    commit('setCSConstructors', res.data.response);
+                    commit('setSSDrivers', { year: '2022', data: res.data.response });
+                })
                 .catch((err) => { console.error(err) });
         },
         getSSDriversAPI({ commit }, payload) {
@@ -90,7 +96,7 @@ export default new Vuex.Store({
                 }
             }
             axios.request(option)
-                .then((res) => { commit('setSSDrivers', res.data.response); })
+                .then((res) => { commit('setSSDrivers', { year: payload, data: res.data.response }); })
                 .catch((err) => { console.error(err) });
         },
         getSSConstructorsAPI({ commit }, payload) {
@@ -104,7 +110,7 @@ export default new Vuex.Store({
                 }
             }
             axios.request(option)
-                .then((res) => { commit('setSSConstructors', res.data.response); })
+                .then((res) => { commit('setSSConstructors', { year: payload, data: res.data.response }); })
                 .catch((err) => { console.error(err) });
         },
     }
