@@ -1,10 +1,14 @@
 <template>
-  <chart-component :list="selected">
+  <chart-component :list="selected" class="chart_driver">
     <template #header>
-      <th>이름</th><th>소속팀</th><th>포인트</th>
+      <th></th>
+      <th>이름</th>
+      <th>소속팀</th>
+      <th>포인트</th>
     </template>
     <template #list="{row}">
-      <td><img :src="row.driver.image">{{ row.driver.name }}</td>
+      <td><img :src="row.driver.image"></td>
+      <td>{{ row.driver.name }}</td>
       <td>{{ row.team.name }}</td>
       <td>{{ row.points }}</td>
     </template>
@@ -24,3 +28,9 @@ export default {
   }
 }
 </script>
+
+<style>
+  .chart_driver {
+    width: 490px;
+  }
+</style>

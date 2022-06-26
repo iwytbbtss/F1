@@ -8,7 +8,7 @@
       </ul>
     </div>
     </transition>
-    <div id="logo" @click="showSche=!showSche"><img src="../assets/F1-logo (1).png" alt="ㅂ"></div>
+    <div id="logo" @click="showSche=!showSche"><img src="../assets/F1-logo.png" alt="ㅂ"></div>
   </div>
 </template>
 

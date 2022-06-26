@@ -4,8 +4,6 @@ import store from './store'
 // fontawesome
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
-document.cookie = "safeCookie1=foo; SameSite=Lax";
-document.cookie = "safeCookie2=foo";
 document.cookie = "crossCookie=bar; SameSite=None; Secure";
 
 Vue.component('font-awesome-icon', FontAwesomeIcon)

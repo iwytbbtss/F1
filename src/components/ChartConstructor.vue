@@ -1,10 +1,13 @@
 <template>
-  <chart-component :list="selected">
+  <chart-component :list="selected" class="chart_constructor">
     <template #header>
-      <th>팀네임</th><th>포인트</th>
+      <th></th>
+      <th>팀네임</th>
+      <th>포인트</th>
     </template>
     <template #list="{row}">
-      <td><img :src="row.team.logo">{{ row.team.name }}</td>
+      <td><img :src="row.team.logo"></td>
+      <td>{{ row.team.name }}</td>
       <td>{{ row.points }}</td>
     </template>
   </chart-component>
@@ -24,3 +27,9 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+  .chart_constructor {
+    width: 355px;
+  }
+</style>

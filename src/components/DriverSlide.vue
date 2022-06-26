@@ -4,7 +4,7 @@
       <div>
         <img :src="driver.driver.image" :alt="driver.driver.name">
         <h3>{{ driver.driver.name }}</h3>
-        <p>{{ driver.driver.number }}</p>
+        <p><i>{{ driver.driver.number }}</i></p>
         <p>point : {{ driver.points }}</p>
         <p>{{ driver.team.name }}</p>
       </div>
@@ -40,10 +40,19 @@ export default {
 
 <style>
 .swiper-container {
-  height: 300px;
+  height: fit-content;
   width: 300px;
 }
 
+.swiper-button-prev, .swiper-button-next {
+  width: 0;
+}
+
+.swiper-button-prev::after, .swiper-button-next::after {
+  font-size: 25px;
+  font-weight: bolder;
+  color: black;
+}
 
 img {
   width: 100px;

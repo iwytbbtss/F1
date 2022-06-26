@@ -1,14 +1,12 @@
 <template>
   <div id="app">
-    <GPBar/>
     <MainHeader/>
     <MainContent />
   </div>
 </template>
 
 <script>
-import MainHeader from './components/MainHeader.vue'
-import GPBar from './components/GPbar.vue'
+import MainHeader from './views/MainHeader.vue'
 import MainContent from './views/MainContent.vue'
 
 //fontawesome
@@ -24,13 +22,13 @@ library.add(faChevronRight, faChevronLeft)
 export default {
   name: 'App',
   components: {
-    MainHeader,GPBar,MainContent
+    MainHeader, MainContent
   },
 }
 </script>
 
 <style>
-#app {
+body {
   margin: 0;
   text-align: center;
 }

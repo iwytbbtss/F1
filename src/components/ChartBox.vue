@@ -1,9 +1,9 @@
 <template>
     <div id="chart">
-        <select v-model="selectedYear">
+        <!-- <select v-model="selectedYear">
             <option v-for="year in years" :key="year" :value="year">{{ year }}</option>
         </select>
-        <button>검색</button>
+        <button>검색</button> -->
         <ChartDriver :selected="$store.getters.getCSDrivers" />
         <ChartConstructor :selected="$store.getters.getCSConstructors" />
     </div>
@@ -30,20 +30,26 @@ export default {
         }
     },
     methods: {
-        commitYear() {
-            if(this.selectedYear==this.$store.getters.getCurrentSeason) {
-                this.driverList=this.$store.getters.getCSDrivers;
-                this.constructorList=this.$store.getters.getCSConstructors;
-            }
-            else {
-                this.$store.dispatch('getSSDriversAPI', this.selectedYear);
-                this.$store.dispatch('getSSConstructorsAPI', this.selectedYear);
-            }
-        }
+        // commitYear() {
+        //     if(this.selectedYear==this.$store.getters.getCurrentSeason) {
+        //         this.driverList=this.$store.getters.getCSDrivers;
+        //         this.constructorList=this.$store.getters.getCSConstructors;
+        //     }
+        //     else {
+        //         this.$store.dispatch('getSSDriversAPI', this.selectedYear);
+        //         this.$store.dispatch('getSSConstructorsAPI', this.selectedYear);
+        //     }
+        // }
     }
 }
 </script>
 
 <style scoped>
-
+    #chart {
+        width: 100%;
+        height: auto;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
 </style>

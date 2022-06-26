@@ -1,6 +1,8 @@
 <template>
   <div id="title">
-    <img src="../assets/F1-logo (1).png" alt="ㅂ">
+    <div class="logo">
+      <img src="../assets/F1-logo.png" alt="ㅂ">
+    </div>
     <ul class="util_menu">
       <li v-for="(link, i) in outlinks" :key="i">
         <a :href="link.url" target="blank">
@@ -25,9 +27,27 @@ export default {
 </script>
 
 <style scoped>
+
+
 #title {
   background-color: aquamarine;
-  padding: 32px;
+  height: 150px;
+}
+
+@keyframes logo {
+  0% {transform: rotate(0deg)}
+  50% {transform: rotate(180deg)}
+  100% {transform: rotate(360deg)}
+}
+
+.logo {
+  animation: logo 10s infinite ease-in-out;
+  animation-delay: 3s;
+  text-align: center;
+  width: auto;
+  height: auto;
+  display: inline-block;
+  margin-top: 20px;
 }
 
 .util_menu {

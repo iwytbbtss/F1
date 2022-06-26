@@ -29,7 +29,10 @@ export default {
 <style>
 .chart {
   clear: both;
-  background-color: beige;
+  background-color: #dbdbdb;
+  margin: 0 auto;
+  margin-top: 30px;
+  height: fit-content;
 }
 
 .chart img {
