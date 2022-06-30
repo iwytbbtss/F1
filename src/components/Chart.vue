@@ -30,13 +30,21 @@ export default {
 .chart {
   clear: both;
   background-color: #dbdbdb;
-  margin: 0 auto;
   margin-top: 30px;
   height: fit-content;
 }
 
 .chart img {
-  width: 50px;
-  height: 50px;
+  width: 65px;
+  height: 65px;
+  object-fit: contain;
+}
+
+.chart tr, .chart th, .chart td {
+  padding: 1vw;
+}
+
+.chart td:nth-of-type(2) {
+  padding: 0;
 }
 </style>

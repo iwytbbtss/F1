@@ -49,7 +49,14 @@ export default {
         width: 100%;
         height: auto;
         display: flex;
-        justify-content: center;
+        justify-content: space-between;
         flex-wrap: wrap;
+    }
+
+    @media screen and (max-width: 1410px) {
+        #chart {
+            justify-content: center;
+            margin: 0 auto;
+        }
     }
 </style>

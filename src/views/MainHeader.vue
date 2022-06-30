@@ -1,7 +1,7 @@
 <template>
   <div id="title">
     <div class="logo">
-      <img src="../assets/F1-logo.png" alt="ㅂ">
+      <img src="../assets/F1-logo.png" alt="ㅂ" width="100" height="100">
     </div>
     <ul class="util_menu">
       <li v-for="(link, i) in outlinks" :key="i">

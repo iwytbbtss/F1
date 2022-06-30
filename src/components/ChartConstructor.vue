@@ -8,7 +8,7 @@
     <template #list="{row}">
       <td><img :src="row.team.logo"></td>
       <td>{{ row.team.name }}</td>
-      <td>{{ row.points }}</td>
+      <td>{{ row.points ? row.points : 0 }}</td>
     </template>
   </chart-component>
 </template>
@@ -30,6 +30,6 @@ export default {
 
 <style scoped>
   .chart_constructor {
-    width: 355px;
+    width: fit-content;
   }
 </style>

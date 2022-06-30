@@ -39,6 +39,7 @@ export default new Vuex.Store({
     mutations: {
         setCSDrivers(state, payload) {
             state.CSDrivers = payload;
+            console.log(payload);
         },
         setCSConstructors(state, payload) {
             state.CSConstructors = payload;
@@ -57,7 +58,7 @@ export default new Vuex.Store({
                 url: 'https://api-formula-1.p.rapidapi.com/rankings/drivers',
                 params: {season: '2022'},
                 headers: {
-                    'X-RapidAPI-Key': 'eefb5dd36cmsh999b017f81b07dfp16ea22jsnc076742f1c8a',
+                    'X-RapidAPI-Key': process.env.VUE_APP_F1_API_KEY,
                     'X-RapidAPI-Host': 'api-formula-1.p.rapidapi.com'
                 }
             }
@@ -74,7 +75,7 @@ export default new Vuex.Store({
                 url: 'https://api-formula-1.p.rapidapi.com/rankings/teams',
                 params: {season: '2022'},
                 headers: {
-                    'X-RapidAPI-Key': 'eefb5dd36cmsh999b017f81b07dfp16ea22jsnc076742f1c8a',
+                    'X-RapidAPI-Key': process.env.VUE_APP_F1_API_KEY,
                     'X-RapidAPI-Host': 'api-formula-1.p.rapidapi.com'
                 }
             }

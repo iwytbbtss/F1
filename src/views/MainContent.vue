@@ -1,5 +1,6 @@
 <template>
     <div class="container">
+        <BannerComponent />
         <DriverSlide />
         <ChartBox />
         <RecommandVideo />
@@ -10,10 +11,11 @@
 import DriverSlide from '../components/DriverSlide.vue'
 import ChartBox from '../components/ChartBox.vue'
 import RecommandVideo from '../components/RecommandVideo.vue'
+import BannerComponent from '../components/Banner.vue'
 
 export default {
     components: {
-        ChartBox, RecommandVideo, DriverSlide
+        ChartBox, RecommandVideo, DriverSlide, BannerComponent
     },
     created() {
         this.$store.dispatch('getCSDriversAPI');
@@ -27,7 +29,6 @@ export default {
     width: 75vw;
     height: auto;
     margin: auto;
-    margin-top: 30px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;

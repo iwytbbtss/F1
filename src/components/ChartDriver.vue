@@ -7,10 +7,10 @@
       <th>포인트</th>
     </template>
     <template #list="{row}">
-      <td><img :src="row.driver.image"></td>
+      <td class="chart_img"><img :src="row.driver.image"></td>
       <td>{{ row.driver.name }}</td>
       <td>{{ row.team.name }}</td>
-      <td>{{ row.points }}</td>
+      <td>{{ row.points ? row.points : 0 }}</td>
     </template>
   </chart-component>
 </template>
@@ -31,6 +31,6 @@ export default {
 
 <style>
   .chart_driver {
-    width: 490px;
+    width: fit-content;
   }
 </style>

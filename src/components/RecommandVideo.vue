@@ -55,7 +55,7 @@ export default {
     position: relative;
     width: 100%;
     height: auto;
-    margin-top: 30px;
+    margin: 30px 0;
 }
 
 h2 {
