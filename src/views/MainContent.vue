@@ -18,8 +18,9 @@ export default {
         ChartBox, RecommandVideo, DriverSlide, BannerComponent
     },
     created() {
-        this.$store.dispatch('getCSDriversAPI');
-        this.$store.dispatch('getCSConstructorsAPI')
+        this.$store.dispatch('getCSDriversAPI').then(() => {
+            this.$store.dispatch('getCSConstructorsAPI');
+        });
     }
 }
 </script>
